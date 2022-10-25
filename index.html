@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    
+    <header>
+        <div class="container">  
+            <div class="parent">
+                <form class="form" name="form">
+                    <select name="select" id="select" required>
+                        <option value="default" selected disabled>Default</option>
+                        <option value="all">All</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Yevropa">Yevropa</option>
+                        <option value="Afrika">Afrika</option>
+                        <option value="Amerika">Amerika</option>
+                    </select>
+                    <input type="text" class="form_input" required>
+                    <select name="sorts" id="select_sorts" required>
+                        <option value="az">AZ</option>
+                        <option value="za">ZA</option>
+                    </select>
+                    <button class="btn">Submit</button>
+                    <input type="checkbox" id="check">
+                </form>
+                
+            </div>
+        </div>
+    </header>
+    <div class="locals">
+        <div class="locals_div"></div>
+    </div>
+    
+    <div class="container">
+    <div class="cards">
+        <template>
+            <div class="card">
+                <img src="https://picsum.photos/200/180" alt="" class="card-img-top">
+                <div class="text">
+                    <h2 class="card-title">Name</h2>
+                    <h3 class="card-qita">qita</h3>
+                    <h5 class="aholi">Aholi</h5>
+                </div>
+                <button class="saqlash">
+                    Locals
+                </button>
+            </div>
+        </template>
+    </div>
+    <button class="btn-local">LocalStorage</button>
+</div>
+
+
+    <script src="./Javascript/axios.js"></script>
+    <script src="./Javascript/utils.js"></script>
+    <script src="./Javascript/main.js"></script>
+</body>
+</html>
