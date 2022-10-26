@@ -14,10 +14,11 @@ body{
 header{
     width: 100%;
     height: auto;
+    z-index: 1;
     position: fixed;
 }
 .active{
-    background: rgba(0, 0, 0, 0.839);
+    background: black;
 }
 .btn-local{
     margin: 1rem;
@@ -57,18 +58,9 @@ form input , select, button, .btn-local{
 form input:focus , select:focus, button:active, .card-btn, .btn-local:hover{
     outline: 3px solid rgb(106, 106, 255);
 }
-.card-btn, .btn-local{
+.card-btn, .saqlash{
     padding: 0.5rem 1rem;
     background: #fff;
-}
-.btn-local{
-    /* position: absolute;     */
-    background: rgba(0, 0, 0, 0.529);
-    z-index: 2;
-}
-.fix{
-    position: fixed;
-    z-index: 2;
 }
 .cards{
     display: flex;
@@ -143,7 +135,7 @@ input[type="checkbox"]:checked{
     padding: 0.3rem 0.8rem;
     background: rgba(0, 0, 0, 0.685);
     color: wheat;
-
+    
 }
 .locals{
     padding-top: 5rem;
@@ -151,11 +143,25 @@ input[type="checkbox"]:checked{
 .locals_div{
     width: 40%;
     height: auto;
-    height: 2px;
+    /* height: 2px; */
     background: black;
     border: 1px solid black;
-    /* display: n; */
+    position: absolute;
+    transform: translateX(-100%);    
+    background: black;
+    padding: 1rem;
 }
 .btn-local{
+    padding: 0.5rem 1rem;
+    position: fixed;
+    background: black;
+}
+.localsBlock{
+    transform: translateX(0%);
+}
+.localsBlock img{
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
 
 }

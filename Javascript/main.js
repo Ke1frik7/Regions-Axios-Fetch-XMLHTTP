@@ -1,6 +1,7 @@
 window.addEventListener("load", () => {
     let inputs = renderElement(".form_input")
     let selects = renderElementALL("select")
+    let localsElement = renderElement(".locals_div")
     selects.forEach((item) => {
       item.addEventListener("change", () => {
         inputs.required = false
@@ -14,10 +15,13 @@ window.addEventListener("load", () => {
     })
     let header = renderElement("header")
     let btnLocals = renderElement(".btn-local")
+    btnLocals.addEventListener("click", () => {
+        localsElement.classList.toggle("localsBlock")
+    })
     window.addEventListener("scroll", () => {
         header.classList.toggle("active", window.scrollY> 0)
+        
         btnLocals.classList.toggle("fix", window.scrollY> 0)
-        console.log(header, btnLocals)
     })
     
     function createCard (value){
@@ -145,4 +149,38 @@ window.addEventListener("load", () => {
         console.log(allArray)
     }
     renderElement("form").addEventListener("submit", handleSub)
+    let objectLocals = {
+        flag: null
+    }
+    window.addEventListener("click", (e) => {
+        if(e.target.matches(".saqlash")){
+            console.log(true)
+            let id = e.target.dataset.id
+            axios({
+                methdod: "GET",
+                url: "https://restcountries.com/v3.1/all", 
+            })
+            .then((response) => {
+                let array = response.data
+                for(let i = 0; i<array.length; i++){
+                    if(array[i].fifa === id){
+                        // console.log(array[i])
+                        objectLocals.flag = array[i].flags.png
+                        this.localStorage.setItem("I'm_fine", JSON.stringify(objectLocals))
+                        let img = createTag("img")
+                        img.src = JSON.parse(this.localStorage.getItem("I'm_fine")).flag
+                        localsElement.innerHTML = null
+                        localsElement.appendChild(img)
+                    }
+                }
+            })
+        }else{
+            console.log(false)
+        }
+        let img = createTag("img")
+        img.src = JSON.parse(this.localStorage.getItem("I'm_fine")).flag
+        localsElement.appendChild(img)
+        console.log(localsElement)
+    })
 })
+
